@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dashboard Pengelolaan Bisnis Sirkumboy — Manajemen pasien, jadwal, keuangan, inventaris, dan multi-cabang dalam satu tempat." />
+  <title>Sirkumboy Dashboard</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232e7bc5'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='700' fill='white'>S</text></svg>" />
+</head>
+<body>
+  <!-- App Layout Shell -->
+  <div class="app-layout" id="appLayout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="Sidebar.closeMobile()"></div>
+
+    <!-- Header -->
+    <header class="header" id="header"></header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+      <!-- Loading skeleton placeholder -->
+      <div style="padding: 2rem;">
+        <div class="skeleton skeleton-heading"></div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
+        <div class="skeleton" style="height: 300px; border-radius: 1rem;"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts — Load order matters (no modules, global scope) -->
+  <!-- 1. Utilities (no dependencies) -->
+  <script src="js/constants.js"></script>
+  <script src="js/helpers.js"></script>
+
+  <!-- 2. Storage layer (depends on constants, helpers) -->
+  <script src="js/db.js"></script>
+  <script src="js/seed.js"></script>
+
+  <!-- 3. Components (depends on constants, helpers, db, icons) -->
+  <script src="js/components/icons.js"></script>
+  <script src="js/components/sidebar.js"></script>
+  <script src="js/components/header.js"></script>
+  <script src="js/components/modal.js"></script>
+  <script src="js/components/toast.js"></script>
+
+  <!-- 4. Pages (depends on everything above) -->
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/pasien.js"></script>
+  <script src="js/pages/jadwal.js"></script>
+  <script src="js/pages/rekam-medis.js"></script>
+  <script src="js/pages/keuangan.js"></script>
+  <script src="js/pages/inventaris.js"></script>
+  <script src="js/pages/cabang.js"></script>
+  <script src="js/pages/auto-wa.js"></script>
+
+  <!-- 5. App entry point (depends on all above) -->
+  <script src="js/app.js"></script>
+</body>
+</html>

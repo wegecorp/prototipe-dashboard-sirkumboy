@@ -1,0 +1,226 @@
+/* ============================================================
+   PAGES — Sirkumboy Dashboard
+   Page-specific styles & Comprehensive Mobile Responsiveness (HP View)
+   ============================================================ */
+
+/* ── Dashboard page ──────────────────────────────────────── */
+.charts-grid .chart-card canvas {
+  max-height: 280px;
+}
+
+/* ── Keuangan page ───────────────────────────────────────── */
+.data-table tbody td.mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Auto-WA page ────────────────────────────────────────── */
+.wa-panel + .wa-panel {
+  margin-top: 0;
+}
+
+/* ── Table Horizontal Scroll Wrapper ─────────────────────── */
+.data-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Mobile Viewport Overrides (< 768px - HP / Smartphone) ─ */
+@media (max-width: 768px) {
+  /* Layout */
+  .app-layout {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "header"
+      "main" !important;
+  }
+
+  .main-content {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .page-title {
+    font-size: 1.35rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.8125rem;
+  }
+
+  /* Header Bar */
+  .header {
+    padding: 0 var(--space-3);
+  }
+
+  .header-breadcrumb {
+    font-size: 1rem;
+  }
+
+  .branch-switcher-btn {
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.75rem;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-3);
+  }
+
+  .stat-card {
+    padding: var(--space-3);
+  }
+
+  .stat-card-value {
+    font-size: 1.35rem;
+  }
+
+  /* Charts */
+  .charts-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3);
+  }
+
+  .chart-card {
+    padding: var(--space-4);
+  }
+
+  /* Tables */
+  .data-table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .data-table-search {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .filters-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--space-2);
+    -webkit-overflow-scrolling: touch;
+    gap: var(--space-2);
+  }
+
+  .filter-chip {
+    flex-shrink: 0;
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+  }
+
+  .data-table {
+    min-width: 600px; /* Enable smooth horizontal scrolling on mobile */
+    font-size: 0.8125rem;
+  }
+
+  .data-table thead th,
+  .data-table tbody td {
+    padding: var(--space-3) var(--space-3);
+  }
+
+  /* Modals on HP */
+  .modal-backdrop {
+    padding: var(--space-2);
+    align-items: flex-end; /* Slide up from bottom on mobile */
+  }
+
+  .modal {
+    max-width: 100% !important;
+    max-height: 90vh !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+  }
+
+  .modal-header {
+    padding: var(--space-4);
+  }
+
+  .modal-body {
+    padding: var(--space-4);
+  }
+
+  .modal-footer {
+    padding: var(--space-3) var(--space-4);
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3);
+  }
+
+  /* Touch Targets */
+  .btn {
+    min-height: 42px;
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .btn-sm {
+    min-height: 34px;
+  }
+}
+
+/* ── Small Smartphone Viewport Overrides (< 480px) ───────── */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stat-card-value {
+    font-size: 1.5rem;
+  }
+
+  #inventarisCardsContainer,
+  #cabangCardsContainer,
+  #waPanelsContainer {
+    grid-template-columns: 1fr !important;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .detail-label {
+    min-width: auto;
+    font-size: 0.75rem;
+  }
+}
+
+/* ── Print styles ────────────────────────────────────────── */
+@media print {
+  .sidebar,
+  .header,
+  .sidebar-overlay,
+  .btn,
+  .filters-bar,
+  .data-table-toolbar {
+    display: none !important;
+  }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main";
+  }
+
+  .main-content {
+    padding: 0;
+  }
+}
