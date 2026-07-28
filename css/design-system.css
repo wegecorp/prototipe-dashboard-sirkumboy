@@ -562,13 +562,13 @@ a:hover {
 .mb-6 { margin-bottom: var(--space-6); }
 
 /* ── Responsive Helpers ──────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1.25rem; }
 
   .hide-mobile { display: none !important; }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .hide-desktop { display: none !important; }
 }

@@ -12,14 +12,19 @@ const Sidebar = (() => {
 
     sidebar.innerHTML = `
       <div class="sidebar-brand">
-        <div class="sidebar-brand-logo">S</div>
-        <span class="sidebar-brand-text">Sirkumboy</span>
+        <div class="sidebar-brand-left">
+          <div class="sidebar-brand-logo">S</div>
+          <span class="sidebar-brand-text">Sirkumboy</span>
+        </div>
+        <button class="sidebar-close-mobile" id="sidebarCloseMobile" title="Tutup Menu" aria-label="Tutup Menu">
+          ${icon('close', '20')}
+        </button>
       </div>
       <nav class="sidebar-nav">
         ${NAV_ITEMS.map(
           (item) => `
           <a href="${item.route}" class="sidebar-link" data-route="${item.route}">
-            <span class="sidebar-link-icon">${Icons[item.icon] || ''}</span>
+            <span class="sidebar-link-icon">${icon(item.icon, '20')}</span>
             <span class="sidebar-link-label">${item.label}</span>
           </a>
         `
@@ -27,12 +32,14 @@ const Sidebar = (() => {
       </nav>
       <div class="sidebar-footer">
         <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">
-          ${Icons.chevronLeft}
+          ${icon('chevronLeft', '20')}
         </button>
       </div>
     `;
 
     document.getElementById('sidebarToggle').addEventListener('click', toggle);
+    const closeBtn = document.getElementById('sidebarCloseMobile');
+    if (closeBtn) closeBtn.addEventListener('click', closeMobile);
     updateActiveLink();
   }
 

@@ -26,7 +26,7 @@
 }
 
 /* ── Mobile Viewport Overrides (< 768px - HP / Smartphone) ─ */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   /* Layout */
   .app-layout {
     grid-template-columns: 1fr !important;

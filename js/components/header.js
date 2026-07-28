@@ -16,8 +16,8 @@ const Header = (() => {
 
     header.innerHTML = `
       <div class="header-left">
-        <button class="header-menu-btn" id="headerMenuBtn">
-          ${Icons.menu}
+        <button class="header-menu-btn" id="headerMenuBtn" title="Buka Menu Sidebar" aria-label="Buka Menu Sidebar">
+          ${icon('menu', '24')}
         </button>
         <span class="header-breadcrumb" id="headerBreadcrumb"></span>
       </div>
